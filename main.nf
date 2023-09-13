@@ -55,9 +55,10 @@ process OUTPUT {
    
     script: 
     """
-    cp $results $PWD/${sample_id}_splicing_efficiency.txt
+    myFile = file('$results')
+    myFile.copyTo('$PWD/${sample_id}_splicing_efficiency.txt')
     """
-    
+    // cp $results $PWD/${sample_id}_splicing_efficiency.txt
 }
 
 workflow { 
