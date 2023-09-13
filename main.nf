@@ -9,6 +9,8 @@ Channel.fromPath(params.input)
 process MAPREADS { 
 
     tag "$sample_id"
+    container 'peaceben/chloroseq'
+    containerOptions '--volume /home/linux/.nextflow/assets/peaceben/chloroseq/:/yo'
    
     input:
     tuple val(sample_id), path(fw), path(rev)
@@ -19,7 +21,7 @@ process MAPREADS {
 
     script: 
     """
-    tophat2 -g 2 -G $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC.gff --no-novel-juncs -o $sample_id $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC $fw $rev
+    tophat2 -g 2 -G /yo/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC.gff --no-novel-juncs -o $sample_id /yo/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC $fw $rev
     """
     
 } 
@@ -27,6 +29,8 @@ process MAPREADS {
 process CHLOROSEQ { 
 
     tag "$sample_id"
+    container 'peaceben/chloroseq'
+    containerOptions '--volume /home/linux/.nextflow/assets/peaceben/chloroseq/:/yo'
 
     input:
     path bam
@@ -38,7 +42,7 @@ process CHLOROSEQ {
 
     script: 
     """
-    $baseDir/ChloroSeq_scripts/chloroseq.pl -a 2 -b $bam -e $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_exon.gff3 -i $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_introns.gff3 -g 128214 -n ChrC -s $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_splice_sites_sort.gff3
+    /yo/ChloroSeq_scripts/chloroseq.pl -a 2 -b $bam -e /yo/TAIR10_ChrC_files/TAIR10_ChrC_exon.gff3 -i /yo/TAIR10_ChrC_files/TAIR10_ChrC_introns.gff3 -g 128214 -n ChrC -s /yo/TAIR10_ChrC_files/TAIR10_ChrC_splice_sites_sort.gff3
     """
 }
 
