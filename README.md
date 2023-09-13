@@ -1,4 +1,4 @@
-Chloroseq - Nextflow/Docker-adapted for the splicing analysis Arabidopsis chloroplast transcriptomes.
+Chloroseq - Nextflow/Docker-adapted for the analysis of splicing in Arabidopsis chloroplast transcriptomes.
 
 --> Install Nextflow and Docker
 
