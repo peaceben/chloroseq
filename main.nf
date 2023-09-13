@@ -19,7 +19,7 @@ process MAPREADS {
 
     script: 
     """
-    tophat2 -g 2 -G $projectDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC.gff --no-novel-juncs -o $sample_id $projectDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC $fw $rev
+    tophat2 -g 2 -G $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC.gff --no-novel-juncs -o $sample_id $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_bowtie2_index/TAIR10_ChrC $fw $rev
     """
     
 } 
@@ -38,7 +38,7 @@ process CHLOROSEQ {
 
     script: 
     """
-    $projectDir/ChloroSeq_scripts/chloroseq.pl -a 2 -b $bam -e $projectDir/TAIR10_ChrC_files/TAIR10_ChrC_exon.gff3 -i projectDir/TAIR10_ChrC_files/TAIR10_ChrC_introns.gff3 -g 128214 -n ChrC -s $projectDir/TAIR10_ChrC_files/TAIR10_ChrC_splice_sites_sort.gff3
+    $baseDir/ChloroSeq_scripts/chloroseq.pl -a 2 -b $bam -e $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_exon.gff3 -i $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_introns.gff3 -g 128214 -n ChrC -s $baseDir/TAIR10_ChrC_files/TAIR10_ChrC_splice_sites_sort.gff3
     """
 }
 
