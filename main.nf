@@ -64,5 +64,6 @@ process OUTPUT {
 workflow { 
     mappedreads_ch = MAPREADS(read_pairs_ch)
     splicingefficiencies_ch = CHLOROSEQ(mappedreads_ch)
-    output_ch = OUTPUT(splicingefficiencies_ch)
+    splicingefficiencies_ch.view()
+    //output_ch = OUTPUT(splicingefficiencies_ch)
 } 
