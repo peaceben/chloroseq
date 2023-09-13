@@ -1,0 +1,3 @@
+sample_id,fw,rev
+WT_ctrl_1,/home/linux/Desktop/splicing_pipeline/WT_1.fq,/home/linux/Desktop/splicing_pipeline/WT_2.fq
+WT_ctrl_2,/home/linux/Desktop/splicing_pipeline/WT_3.fq,/home/linux/Desktop/splicing_pipeline/WT_4.fq

@@ -55,7 +55,7 @@ process OUTPUT {
    
     script: 
     """
-    cp $results $PWD/${sample_id}_splicing_efficiency.txt"
+    cp $results $PWD/${sample_id}_splicing_efficiency.txt
     """
     
 }
