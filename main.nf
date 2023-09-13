@@ -27,7 +27,7 @@ process MAPREADS {
 process CHLOROSEQ { 
 
     tag "$sample_id"
-    publishDir 'results', saveAs: { filename -> "${sample_id}_${filename}" }
+    publishDir 'results', saveAs: { filename -> "${sample_id}_${filename}" }, mode: 'copy'
 
     input:
     path bam
