@@ -34,7 +34,7 @@ process CHLOROSEQ {
 
     output: 
     file 'splicing_efficiency.txt'
-    val sample_id
+    //val sample_id
 
     script: 
     """
