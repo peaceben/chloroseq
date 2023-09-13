@@ -35,7 +35,6 @@ process CHLOROSEQ {
 
     output: 
     file 'splicing_efficiency.txt'
-    //val sample_id
 
     script: 
     """
@@ -43,28 +42,7 @@ process CHLOROSEQ {
     """
 }
 
-process OUTPUT { 
-   
-    tag "$sample_id"
-
-    input:
-    path results
-    val sample_id
-
-    output: 
-    stdout
-   
-    script: 
-    """
-    myFile = file('$results')
-    myFile.copyTo('$PWD/${sample_id}_splicing_efficiency.txt')
-    """
-    // cp $results $PWD/${sample_id}_splicing_efficiency.txt
-}
-
 workflow { 
     mappedreads_ch = MAPREADS(read_pairs_ch)
     splicingefficiencies_ch = CHLOROSEQ(mappedreads_ch)
-    splicingefficiencies_ch.view()
-    //output_ch = OUTPUT(splicingefficiencies_ch)
 } 
