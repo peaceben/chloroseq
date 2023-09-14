@@ -8,6 +8,7 @@ Channel.fromPath(params.input)
 
 process MAPREADS { 
 
+    container 'peaceben/chloroseq-tophat'
     tag "$sample_id"
    
     input:
@@ -26,6 +27,7 @@ process MAPREADS {
 
 process CHLOROSEQ { 
 
+    container 'peaceben/chloroseq'
     tag "$sample_id"
     publishDir 'results', saveAs: { filename -> "${sample_id}_${filename}" }, mode: 'copy'
 
