@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
 
+nextflow.enable.dsl=2
+
 params.input = ''
 
 Channel.fromPath(params.input)
@@ -29,7 +31,7 @@ process CHLOROSEQ {
 
     container 'peaceben/chloroseq'
     tag "$sample_id"
-    publishDir 'results', saveAs: { filename -> "${sample_id}_${filename}" }, mode: 'copy'
+    publishDir 's3://peaceben/results/', saveAs: { filename -> "${sample_id}_${filename}" }, mode: 'copy'
 
     input:
     path bam
