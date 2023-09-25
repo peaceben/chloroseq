@@ -1,7 +1,7 @@
-Chloroseq - Nextflow/Docker-adapted for the analysis of splicing in Arabidopsis chloroplast transcriptomes.
+Chloroseq - Nextflow/Docker-adapted for splicing analyses of Arabidopsis chloroplast transcriptomes
 
---> Install Nextflow and Docker
+--> Install Nextflow & Docker
 
---> Fill out sample sheet (example sample sheet - samples.csv)
+--> Fill in sample sheet (you can use the example sample sheet: samples.csv)
 
---> Execute nextflow run peaceben/chloroseq --input samples.csv
+--> Execute with: nextflow run peaceben/chloroseq --input samples.csv
